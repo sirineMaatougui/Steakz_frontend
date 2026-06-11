@@ -3,7 +3,7 @@ import axios from 'axios';
 // Distinct key so Sirine's app and the other frontend don't clash in one browser.
 export const TOKEN_KEY = 'steakz_sirine_token';
 
-export const api = axios.create({ baseURL: '/api/v1' });
+export const api = axios.create({ baseURL: `${import.meta.env.VITE_API_URL ?? ''}/api/v1` });
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem(TOKEN_KEY);
